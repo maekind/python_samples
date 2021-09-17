@@ -1,9 +1,20 @@
 #!/usr/bin/python
 
+""" 
+This file contains a sample to check a server connection 
+within a thread.
+"""
+
 import sys
 import threading
 from time import sleep
 
+__authors__ = 'Marco Espinosa'
+__license__ = 'MIT License'
+__version__ = '1.0'
+__maintainer__ = 'Marco Espinosa'
+__email__ = 'hi@marcoespinosa.es'
+__status__ = 'Development'
 
 class ConnectionSample:
     """
