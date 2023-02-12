@@ -24,12 +24,12 @@ jobs:
         run: |
           pipenv install -d
           # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          pipenv run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          pipenv run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest (with coverage)
         run: |
-          pytest tests -v --cov=./python_samples --cov-report=xml:./coverage.xml --cov-report term-missing
+          pipenv run pytest tests -v --cov=./python_samples --cov-report=xml:./coverage.xml --cov-report term-missing
       - name: Upload code coverage
         uses: codecov/codecov-action@v2
         with:
