@@ -4,7 +4,7 @@
 
 This repository contains several samples of kwon algorithms and data structures.
 
-## List of implementations
+## List of implementations
 
 - Binary tree (DS)
 - Custom linked list (DS)
