@@ -1,4 +1,5 @@
-#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 """ Contains classes for implementing Observer pattern """
 
@@ -12,7 +13,7 @@ from typing import List
 import threading
 import logging
 
-__package__ = "python_and_pizzas"
+__package_name__ = "python_and_pizzas"
 __authors__ = "Marco Espinosa"
 __license__ = "MIT License"
 __version__ = "1.0"
@@ -21,8 +22,7 @@ __email__ = "hi@marcoespinosa.es"
 __status__ = "Development"
 
 
-
-# Abstract clases to implement the pattern
+# Abstract classes to implement the pattern
 
 class Observer(ABC):
     """
@@ -36,8 +36,7 @@ class Observer(ABC):
         The pattern call this function "update", but to make
         ir more inclusive with the sample, I called it "cooked" ;)
         """
-        pass
-
+        raise NotImplementedError()
 
 class Observable(ABC):
     """
@@ -49,34 +48,34 @@ class Observable(ABC):
         """
         Attach an observer to the subject.
         """
-        pass
+        raise NotImplementedError()
 
     @abstractmethod
     def detach(self, observer: Observer) -> None:
         """
         Detach an observer from the subject.
         """
-        pass
+        raise NotImplementedError()
 
     @abstractmethod
     def notify(self) -> None:
         """
         Notify all observers about an event.
         """
-        pass
+        raise NotImplementedError()
 
-# Sample clases to use the pattern
+# Sample classes to use the pattern
 
-# In this sample, the Pizzaman creates some pizzas.
-# Then, he cooks them into the StoneOven. The StaoneOven
+# In this sample, the Pizza-man creates some pizzas.
+# Then, he cooks them into the StoneOven. The StoneOven
 # has a limited capacity, so the PizzaMan observes for
 # a finished pizza.
-# Futhermore, he can put more other pizzas to cook.
+# Furthermore, he can put more other pizzas to cook.
 
 
 class Pizza:
     """
-    This class modelize a basic pizza
+    This class models a basic pizza
     """
 
     def __init__(self, name) -> None:
@@ -121,7 +120,7 @@ class PizzaMan(Observer):
         # Pending pizzas
         self._pending_pizzas = deque([])
 
-        # Set logger name
+        # Set logger name
         self._log = logging.getLogger(self._name)
 
     def cooked(self, pizza, owner):
@@ -130,7 +129,7 @@ class PizzaMan(Observer):
         when a pizza is cooked.
         """
         if owner is self._name:
-            # Remove pizza from pending pizzas list
+            # Remove pizza from pending pizzas list
             self._pending_pizzas.remove(pizza)
             self._log.info(
                 f"Pizza {pizza.name} is ready to deliver!")
@@ -140,11 +139,12 @@ class PizzaMan(Observer):
         This method attachs de PizzaMan itself (Observer) to the
         object oven (Observable) to be notified when a pizzas is cooked.
         """
-        self._log.info(f"Request to use the oven. (Attach to the Observable object)")
+        self._log.info(
+            "Request to use the oven. (Attach to the Observable object)")
         self._oven = oven
         self._oven.attach(self)
         sleep(1)
-        
+
     def clean_oven(self):
         """
         This method is called when the PizzaMan
@@ -154,10 +154,11 @@ class PizzaMan(Observer):
         oven.
         """
         if self._oven:
-            self._log.info(f"I'm no longer using the oven (Detach from the Observable object)")
+            self._log.info(
+                "I'm no longer using the oven (Detach from the Observable object)")
             self._oven.detach(self)
             sleep(1)
-        
+
     def prepare(self, pizza):
         """
         This method prepares a pizza an put it into
@@ -209,7 +210,7 @@ class Oven(Observable):
         self._pizzas_cooking = deque([])
         # List of pizzas cooking
         self._pizzas_prepared = deque([])
-        # List of pizzamans that use the oven
+        #  List of pizzamans that use the oven
         self._pizza_mans: List[Observer] = []
         # lock for safety acces to variables from threads
         self._lock = threading.Lock()
@@ -232,7 +233,8 @@ class Oven(Observable):
         """
         Method to attach observers
         """
-        self._log.info(f"{pizzaman.name} is allowed to use the oven (Attached to the Observable object)")
+        self._log.info(
+            f"{pizzaman.name} is allowed to use the oven (Attached to the Observable object)")
         # Add pizzaman to the observers list to be notified
         self._pizza_mans.append(pizzaman)
 
@@ -240,7 +242,7 @@ class Oven(Observable):
         """
         Removes attached observer
         """
-        # Removes the pizzaman from the list of observers. So
+        # Removes the pizzaman from the list of observers. So
         # he won't be no longer notified
         self._pizza_mans.remove(pizzaman)
 
@@ -248,7 +250,7 @@ class Oven(Observable):
         """
         Function to notify observers of data changes
         """
-        # Notify all pizzamans that a pizza is ready to deliver
+        #  Notify all pizzamans that a pizza is ready to deliver
         for pizzaman in self._pizza_mans:
             pizzaman.cooked(pizza, owner)
 
@@ -263,10 +265,10 @@ class Oven(Observable):
         pizza = None
 
         # Execut forever until turn off action was received
-        while(self._cook):
+        while self._cook:
             # Check for number pizzas cooking, to not exceed its capacity
             if self._capacity > len(self._pizzas_cooking):
-                # If there are pizzas waiting for cooking:
+                #  If there are pizzas waiting for cooking:
                 if self._pizzas_prepared:
                     with self._lock:
                         # Take a pizza for cooking
@@ -288,7 +290,7 @@ class Oven(Observable):
                             f"There are {len(self._pizzas_cooking)} pizzas cooking.")
 
         # If turn off action is recived, wait for all pending pizzas to be cooked
-        for index, pizza_cooking in enumerate(cooking):
+        for _, pizza_cooking in enumerate(cooking):
             # Wait for pizza ...
             pizza_cooking.join()
 
@@ -329,23 +331,25 @@ class Oven(Observable):
         """
         return self._pizzas_cooking
 
+
 def configure_logger():
     """
     Method to configure logging
     """
     logargs = {
-            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S'}
-    
+        'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        'datefmt': '%Y-%m-%d %H:%M:%S'}
+
     logargs["level"] = "INFO"
-        
+
     logging.basicConfig(**logargs)
+
 
 def main():
     """
     Main function
     """
-    
+
     # Configure logger properties
     configure_logger()
 
@@ -403,8 +407,8 @@ def main():
 
     pizzaman2.prepare(quattro_stagioni)
 
-    # Wait while there are pizzas cooking into the oven
-    while(pizzaman1.pending_pizzas or pizzaman2.pending_pizzas):
+    #  Wait while there are pizzas cooking into the oven
+    while (pizzaman1.pending_pizzas or pizzaman2.pending_pizzas):
         sleep(1)
 
     # Turn off oven when all pizzas ready
