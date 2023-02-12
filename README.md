@@ -1,5 +1,6 @@
 <!-- Labels -->
 [![codecov](https://img.shields.io/codecov/c/github/maekind/python_samples?label=codecov&logo=codecov)](https://codecov.io/gh/maekind/python_samples)
+[![build](https://img.shields.io/github/actions/workflow/status/maekind/python_samples/pythonpackage.yaml)]()
 [![licence](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/maekind/python_samples/blob/main/LICENSE)
 [![size](https://img.shields.io/github/repo-size/maekind/python_samples)]()
 [![last_commit](https://img.shields.io/github/last-commit/maekind/python_samples)]()
