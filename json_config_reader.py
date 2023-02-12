@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """ This sample uses the file json_sample.json located into the data folder """
 
@@ -15,7 +15,7 @@ __status__ = 'Development'
 
 
 class ConfigReaderException(Exception):
-    """ 
+    """
     This is a custom exception for our ConfigReader class
     that heritages from Exception base class.
     """
@@ -43,7 +43,7 @@ class ConfigReader:
 
     def _load_config(self) -> None:
         """
-        Method to load configuration file 
+        Method to load configuration file
         """
         try:
             # Opening configuration file for reading

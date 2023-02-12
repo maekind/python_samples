@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """ Contains classes for implementing a binary tree """
 
@@ -195,8 +195,8 @@ def search():
 def main():
     """ Main method """
     print_tree_numbers()
-    #search()
-    #print_tree_names()
+    # search()
+    # print_tree_names()
 
 
 # main execution

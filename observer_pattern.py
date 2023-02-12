@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """ Contains classes for implementing Observer pattern """
 
@@ -37,6 +37,7 @@ class Observer(ABC):
         ir more inclusive with the sample, I called it "cooked" ;)
         """
         raise NotImplementedError()
+
 
 class Observable(ABC):
     """
@@ -150,7 +151,7 @@ class PizzaMan(Observer):
         This method is called when the PizzaMan
         is not going to cook more pizzas.
         It detachs the pizzaman (Observer) from the oven (Observable),
-        so the pizzaman is no longer receiving notifications from the 
+        so the pizzaman is no longer receiving notifications from the
         oven.
         """
         if self._oven:
@@ -258,7 +259,7 @@ class Oven(Observable):
         """
         Method to cook pizzas. This method runs in an independant thread,
         so while the oven was on, it cooks pizzas without exceed its capacity.
-        If the capacity is reached, it will wait until a pizza was ready to 
+        If the capacity is reached, it will wait until a pizza was ready to
         deliver.
         """
         cooking = []

@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """ This file contains the Quicksort algorithm implementation """
 
 
@@ -10,9 +10,9 @@ class QuickSort():
     to come up with a "sorted" nums relative to the pivot """
 
     def __init__(self, array):
-        """ Default constructors 
+        """ Default constructors
 
-            params: 
+            params:
                 @array: Array of numbers
         """
 
@@ -71,7 +71,7 @@ class QuickSort():
 
 
 def test_sorted_array_in_ascendant_order():
-    """ Method to test the quicksort implementation. 
+    """ Method to test the quicksort implementation.
         The result has to be an ordered array in ascendant order """
 
     unsorted = [1, 7, 4, 1, 10, 23, 9, -2]

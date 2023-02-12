@@ -1,3 +1,9 @@
+<!-- Labels -->
+[![codecov](https://img.shields.io/codecov/c/github/maekind/python_samples?label=codecov&logo=codecov)](https://codecov.io/gh/maekind/python_samples)
+[![licence](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/maekind/python_samples/blob/main/LICENSE)
+[![size](https://img.shields.io/github/repo-size/maekind/python_samples)]()
+[![last_commit](https://img.shields.io/github/last-commit/maekind/python_samples)]()
+
 # python_samples
 
 ## Description
@@ -13,7 +19,9 @@ This repository contains several samples of kwon algorithms and data structures.
 - Quick-Sort (Sorting algorithm)
 - Server keepalive (Wrapper)
 
-## Credits
+# Contributors
 
-Marco Espinosa (c) 2021-2023
-Say hello: hi@marcoespinosa.es
+<a href="https://github.com/maekind/python_sammples/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=maekind/python_samples" />
+</a>
+

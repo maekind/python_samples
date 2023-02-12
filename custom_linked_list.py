@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """ Contains classes for implementing a custom linked list """
 
@@ -167,9 +167,8 @@ class CustomLinkedList:
                 f"Targeted data {targeted_data} doesn't found!")
 
     def sort(self):
-        """ 
-        Method to sort the list ascendant 
-        
+        """
+        Method to sort the list ascendant
         NOTE: The best method is the merge sort algorithm.
         Merge sort algorithm splits in two equal lists the original list.
         Then, sorts each list individually. It sorts each list recursively,
@@ -280,6 +279,57 @@ class CustomLinkedList:
         return head_of_merged_list
 
 
+def print_content(custom_list):
+    """ Method for printing the custom list nodes """
+
+    # TWO ways for printing list content:
+    # Using __repr__ function that returns a formatted string representation
+    print(f'Using __repr__ function: {str(custom_list)}')
+
+    # Using __iter__ function that iterates list nodes
+    print('Using __iter__ function: ', end='')
+    for node in custom_list:
+        print(f'{str(node)} -> ', end='')
+    print('None')
+
+
+def print_sorted_list(custom_list):
+    """ Method for sorting and printing the list """
+    custom_list.sort()
+    print(f'Sorted list: {str(custom_list)}')
+
+
+def check_add_nodes(custom_list):
+    """ Method to check wheater a node exists or not """
+    # Checking functions to add new nodes
+    custom_list.add_first("1024")
+    custom_list.add_last("8096")
+    print(
+        f'Added 1024 at the beginning and 8096 at the end: {str(custom_list)}')
+
+    try:
+        custom_list.add_after("5", "4092")
+        print(f'Added 4092 after 5: {str(custom_list)}')
+        # An exception will be raised because there is no 125 node!
+        custom_list.add_after("125", "128")
+    except NodeNotFoundException as error:
+        print(f'Warning: {error}')
+
+    try:
+        custom_list.add_before("5", "2048")
+        print(f'Added 2048 before 5: {str(custom_list)}')
+        # An exception will be raised because there is no 125 node!
+        custom_list.add_before("125", "128")
+    except NodeNotFoundException as error:
+        print(f'Warning: {error}')
+
+
+def print_middle_node(custom_list):
+    """ Method for printing the middle node """
+    node = custom_list.get_middle_node(custom_list.head)
+    print(f'Middle node: {node}')
+
+
 def main():
     """ main method to retrieve console input """
 
@@ -295,44 +345,13 @@ def main():
                 nodes = nodes.split(',')
                 custom_list = CustomLinkedList(nodes)
 
-                # TWO ways for printing list content:
-                # Using __repr__ function that returns a formatted string representation
-                print(f'Using __repr__ function: {str(custom_list)}')
+                print_content(custom_list)
 
-                # Using __iter__ function that iterates list nodes
-                print('Using __iter__ function: ', end='')
-                for node in custom_list:
-                    print(f'{str(node)} -> ', end='')
-                print('None')
+                print_sorted_list(custom_list)
 
-                # Sorting list
-                custom_list.sort()
-                print(f'Sorted list: {str(custom_list)}')
+                check_add_nodes(custom_list)
 
-                # Checking functions to add new nodes
-                custom_list.add_first("1024")
-                custom_list.add_last("8096")
-                print(
-                    f'Added 1024 at the beginning and 8096 at the end: {str(custom_list)}')
-
-                try:
-                    custom_list.add_after("5", "4092")
-                    print(f'Added 4092 after 5: {str(custom_list)}')
-                    # An exception will be raised because there is no 125 node!
-                    custom_list.add_after("125", "128")
-                except NodeNotFoundException as error:
-                    print(f'Warning: {error}')
-
-                try:
-                    custom_list.add_before("5", "2048")
-                    print(f'Added 2048 before 5: {str(custom_list)}')
-                    # An exception will be raised because there is no 125 node!
-                    custom_list.add_before("125", "128")
-                except NodeNotFoundException as error:
-                    print(f'Warning: {error}')
-
-                node = custom_list.get_middle_node(custom_list.head)
-                print(f'Middle node: {node}')
+                print_middle_node(custom_list)
 
         except TypeError as error:
             print(error)

@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
-""" 
-This file contains a sample to check a server connection 
+# -*- coding: utf-8 -*-
+
+"""
+This file contains a sample to check a server connection
 within a thread.
 """
 
@@ -26,11 +27,11 @@ class KeepaliveServerConnection:
     ConnectionSample launches a threaded method to check
     your connection with the satisfy_condition function,
     which has to be externally provided.
-    The checker runs every SHORT_CHECK time. Thus, if 
-    the MAX_DISCONNECTION is reached, the checker set itself 
-    to a low frequence, checking the connection every 
+    The checker runs every SHORT_CHECK time. Thus, if
+    the MAX_DISCONNECTION is reached, the checker set itself
+    to a low frequence, checking the connection every
     LONG_CHECK.
-    You have to provide your code for what to do after a 
+    You have to provide your code for what to do after a
     disconnection. Maybe, a reconnect method?
     """
 

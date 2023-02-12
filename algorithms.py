@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """ algorithms and data structure operations """
 
-## SEARCHING
+# SEARCHING
 
 
 def search_employees_manager(employee, managers):
@@ -16,7 +17,7 @@ def search_employees_manager(employee, managers):
     return None
     # This is an O(n) complexity function in the worst case.
 
-## SWAPPING ##
+# SWAPPING
 
 
 def swap_dict_a_b_values(values):
@@ -45,7 +46,7 @@ def swap_dict_positions(values, pos1, pos2):
 
     return values
 
-## Tests
+# Tests
 
 
 def test_swap_dict_a_b_values():
