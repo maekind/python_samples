@@ -1,5 +1,5 @@
-#!/usr/bin/python
-
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 """ 
 This file contains a sample to check a server connection 
 within a thread.
@@ -16,6 +16,7 @@ __maintainer__ = 'Marco Espinosa'
 __email__ = 'hi@marcoespinosa.es'
 __status__ = 'Development'
 
+
 class ConnectionSample:
     """
     Connection sample class.
@@ -23,16 +24,17 @@ class ConnectionSample:
     The class has connect and disconnect methods that have
     to be filled with your own code.
     ConnectionSample launches a threaded method to check
-    your connection meanning a function satisfy_condition,
-    wich you have to provide the code.
-    The checker runs every SHORT_CHECK time. But, after 
-    the MAX_DISCONNECTION is reached, the checker pass to 
-    a low frequence, checking the connection every 
+    your connection with the satisfy_condition function,
+    which has to be externally provided.
+    The checker runs every SHORT_CHECK time. Thus, if 
+    the MAX_DISCONNECTION is reached, the checker set itself 
+    to a low frequence, checking the connection every 
     LONG_CHECK.
-    You have to provide your code for what doing after a 
+    You have to provide your code for what to do after a 
     disconnection. Maybe, a reconnect method?
     """
-    # Constants
+
+    # Default constants values
     SHORT_CHECK = 1
     LONG_CHECH = 4
     MAX_DISCONNECTIONS = 2
@@ -73,7 +75,7 @@ class ConnectionSample:
         """
         print("Thread started!")
         # Do while does not have a stop request
-        while(not self._stop):
+        while not self._stop:
             # If not connected
             if not self._satisfy_condition():
                 print("Disconnected!")
