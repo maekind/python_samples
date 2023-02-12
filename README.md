@@ -8,7 +8,7 @@
 
 ## Description
 
-This repository contains several samples of kwon algorithms and data structures.
+This repository contains several samples of known algorithms and data structures.
 
 ## List of implementations
 
