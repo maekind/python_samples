@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 typing-extensions = "*"
+pytest-cov = "*"
 
 [dev-packages]
 autopep8 = "*"
