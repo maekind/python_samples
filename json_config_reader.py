@@ -1,6 +1,7 @@
-#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-""" This sample uses the file json_sample.conf located into the data folder """
+""" This sample uses the file json_sample.json located into the data folder """
 
 import json
 from os import path
@@ -16,11 +17,11 @@ __status__ = 'Development'
 class ConfigReaderException(Exception):
     """ 
     This is a custom exception for our ConfigReader class
-    that heritates from Exception base class.
+    that heritages from Exception base class.
     """
 
 
-class ConfigReader():
+class ConfigReader:
     """
     This class provides an interface to read
     a configuration file in json format
@@ -31,6 +32,7 @@ class ConfigReader():
         Default constructor
         """
         # Set configuration file
+        self._config = None
         self._config_file = config_file
 
         # Initialize vars
@@ -44,16 +46,16 @@ class ConfigReader():
         Method to load configuration file 
         """
         try:
-            # Openning configuration file for reading
+            # Opening configuration file for reading
             with open(self._config_file, 'r') as file_:
                 self._content = json.loads(file_.read())
 
             print("Configuration file loaded successfully!")
 
-        except Exception as e:
+        except Exception as error:
             # Raise custom exception
             raise ConfigReaderException(
-                f"{self._config}: cannot load configuration: {e}")
+                f"{self._config}: cannot load configuration: {error}")
 
     def get_parameter(self, parameter, default=None):
         """
@@ -84,35 +86,35 @@ def main():
     Main function
     """
     # Load configuration file
-    configReader = ConfigReader(path.join("data", "json_sample.conf"))
+    config_reader = ConfigReader(path.join("data", "json_sample.json"))
 
     # Get some string parameter
-    param_value = configReader.get_parameter(["section 1", "param 1"])
+    param_value = config_reader.get_parameter(["section 1", "param 1"])
     # Print the parameter value and its type
     print(
         f"Section 1->param 1 value: {param_value} (Type:{type(param_value)})")
 
     # Get some float parameter
-    param_value = configReader.get_parameter(["section 2", "param 4"])
+    param_value = config_reader.get_parameter(["section 2", "param 4"])
     # Print the parameter value and its type
     print(
         f"Section 2->param 4 value: {param_value} (Type:{type(param_value)})")
 
-    # Get some dictionnary parameter
-    param_value = configReader.get_parameter(["section 3", "my dict"])
+    # Get some dictionary parameter
+    param_value = config_reader.get_parameter(["section 3", "my dict"])
     # Print the parameter value and its type
     print(
         f"Section 3->my dict value: {param_value} (Type:{type(param_value)})")
 
-    # Get some non-existant parameter with default value
-    param_value = configReader.get_parameter(
-        ["section 10", "non-existant"], default="This parameter does not exists!")
+    # Get some non-existent parameter with default value
+    param_value = config_reader.get_parameter(
+        ["section 10", "non-existent"], default="This parameter does not exists!")
     # Print the parameter value and its type
     print(
-        f"Non-existant parameter value: {param_value} (Type:{type(param_value)})")
+        f"Non-existent parameter value: {param_value} (Type:{type(param_value)})")
 
     # Pretty json print of all parameters in configuration file
-    configReader.print_config_parameters()
+    config_reader.print_config_parameters()
 
 
 if __name__ == "__main__":
