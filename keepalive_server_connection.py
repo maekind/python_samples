@@ -17,7 +17,7 @@ __email__ = 'hi@marcoespinosa.es'
 __status__ = 'Development'
 
 
-class ConnectionSample:
+class KeepaliveServerConnection:
     """
     Connection sample class.
 
@@ -130,7 +130,7 @@ def main():
     """
     Main function
     """
-    con = ConnectionSample()
+    con = KeepaliveServerConnection()
     sleep(10)
     con.connect()
     sleep(10)
