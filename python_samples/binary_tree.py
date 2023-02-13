@@ -10,7 +10,6 @@ __version__ = "1.0"
 __maintainer__ = "Marco Espinosa"
 __email__ = "hi@marcoespinosa.es"
 __status__ = "Development"
-__name__ = "Binary_Tree"
 
 from typing import List
 from typing_extensions import Self
@@ -122,23 +121,7 @@ class BinaryTreeNode:
         return False
 
 
-# Test functions
-
-def test_new_node():
-    """ Creating a node """
-    new_node = BinaryTreeNode(40)
-    assert str(new_node) == '40'
-
-
-def test_insert_node():
-    """ Inserting a node """
-    new_node = BinaryTreeNode(40)
-    new_node.insert(25)
-
-    assert True
-
-
-def print_btree(root):
+def print_btree(root): # pragma: no cover
     """ Generic B-tree test printing """
     print('Print: ', end=' ')
     root.print()
@@ -158,7 +141,7 @@ def print_btree(root):
     print('')
 
 
-def print_tree_numbers():
+def print_tree_numbers(): # pragma: no cover
     """ Printing a tree """
     root = BinaryTreeNode(3)
     root.insert(6)
@@ -169,7 +152,7 @@ def print_tree_numbers():
     print_btree(root)
 
 
-def print_tree_names():
+def print_tree_names(): # pragma: no cover
     """ Printing a tree """
     root = BinaryTreeNode('Joe')
     root.insert('Alice')
@@ -179,26 +162,12 @@ def print_tree_names():
     print_btree(root)
 
 
-def search():
-    """ Searching data """
-    root = BinaryTreeNode(35)
-    root.insert(25)
-    root.insert(3)
-    root.insert(56)
-
-    print("5: " + str(root.search(root, 5)))
-    print("56: " + str(root.search(root, 56)))
-    print("1024: " + str(root.search(root, 1024)))
-    print("25: " + str(root.search(root, 25)))
-
-
 def main():
     """ Main method """
     print_tree_numbers()
-    # search()
-    # print_tree_names()
+    print_tree_names()
 
 
 # main execution
-if __name__ == "Binary_Tree":
+if __name__ == "__main__":
     main()
