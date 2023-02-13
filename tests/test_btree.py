@@ -40,6 +40,16 @@ def test_insert_right_node():
     assert True
 
 
+def test_insert_none_node():
+    """ Inserting a none node"""
+    try:
+        _ = BinaryTreeNode(None)
+    except Exception as error:
+        raise error
+
+    assert True
+
+
 def test_search_existant_node_value():
     """ Searching an existing node value """
     root = get_btree_sample()
