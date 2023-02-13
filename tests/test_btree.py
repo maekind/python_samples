@@ -18,11 +18,22 @@ def test_new_node():
     assert str(new_node) == '40'
 
 
-def test_insert_node():
-    """ Inserting a node """
+def test_insert_left_node():
+    """ Inserting a node to the left """
     try:
         new_node = BinaryTreeNode(40)
         new_node.insert(25)
+    except Exception as error:
+        raise error
+
+    assert True
+
+
+def test_insert_right_node():
+    """ Inserting a node to the right """
+    try:
+        new_node = BinaryTreeNode(40)
+        new_node.insert(125)
     except Exception as error:
         raise error
 

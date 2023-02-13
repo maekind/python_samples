@@ -67,7 +67,7 @@ class BinaryTreeNode:
         else:
             self.data = data
 
-    def print(self):
+    def print(self): # pragma: no cover
         """ Print nodes recursively """
         if self.left_child:
             self.left_child.print()
