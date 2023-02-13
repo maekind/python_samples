@@ -40,10 +40,33 @@ def test_insert_right_node():
     assert True
 
 
+def test_insert_right_node_to_an_existant_right_node():
+    """ Inserting a right node to an existant right """
+    try:
+        new_node = BinaryTreeNode(40)
+        new_node.insert(125)
+        new_node.insert(150)
+    except Exception as error:
+        raise error
+
+    assert True
+
+
 def test_insert_none_node():
     """ Inserting a none node"""
     try:
         _ = BinaryTreeNode(None)
+    except Exception as error:
+        raise error
+
+    assert True
+
+
+def test_insert_node_to_none_btree():
+    """ Inserting a none node"""
+    try:
+        new_node = BinaryTreeNode(None)
+        new_node.insert(15)
     except Exception as error:
         raise error
 
