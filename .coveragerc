@@ -1,0 +1,10 @@
+[run]
+omit = python_sammples/algorithms.py
+    python_sammples/keepalive_server_connection.py
+    
+[report]
+exclude_lines =
+    pragma: no cover
+    if TYPE_CHECKING:
+    if __name__ == "__main__":
+    @overload
