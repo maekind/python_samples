@@ -7,5 +7,8 @@ exclude_lines =
     pragma: no cover
     if TYPE_CHECKING:
     if __name__ == "__main__":
-    def main():
+    # Functions to avoid
+    def main
+    def __repr__
+    def __str__
     @overload
