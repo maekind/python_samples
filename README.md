@@ -6,7 +6,7 @@
 [![last_commit](https://img.shields.io/github/last-commit/maekind/python_samples?color=violet)](https://github.com/maekind/python_samples)
 [![language](https://img.shields.io/github/languages/top/maekind/python_samples?color=yellowgreen)](https://github.com/maekind/python_samples)
 
-# python_samples
+# python_samples 🐍 
 
 ## Description
 
